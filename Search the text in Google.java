@@ -10,28 +10,28 @@ public class First
 	{
 		// TODO Auto-generated method stub
     
-		System.setProperty("webdriver.chrome.driver","D:\\selenium\\chromedriver_win32(4)\\chromedriver.exe");
-		String actualtitle="selinium - Google Search";
+		System.setProperty("webdriver.chrome.driver","D:\\Hello\\chromedriver.exe");
+		String expectedtitle="Selenium - Google Search";
 		WebDriver driver=new ChromeDriver();
     
 		driver.get("https://www.google.com");
-		driver.findElement(By.id("lst-ib")).sendKeys("selinium");
+		driver.findElement(By.id("lst-ib")).sendKeys("Selenium");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.name("btnK")).click();
     
-		String expectedtitle=driver.getTitle();
-		System.out.println(expectedtitle);
-		String expectedtitle1=driver.getTitle();
+		System.out.println("Expected Title : "+expectedtitle);
+		String actualtitle=driver.getTitle();
     
-		if(actualtitle.contentEquals(expectedtitle1))
+		if(expectedtitle.contentEquals(actualtitle))
 		{
+			System.out.println("Actual Title : "+actualtitle);
 			System.out.println("Title Correct");
-			System.out.println(expectedtitle1);
 		}
 		else
 		{
+			System.out.println("Actual Title : "+actualtitle);
 			System.out.println("Title Incorrect");
-			System.out.println(expectedtitle1);
 		}
+		driver.close();
 	}
 }
